@@ -1,0 +1,4 @@
+openai>=3.25.0   # install open ai as lib and pass system prompt
+python-dotenv>=1.2.4  # interate with environment variable
+streamlit>=1.65.0    # for front
+# why we have specified version ? - to understand interface
