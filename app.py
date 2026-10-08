@@ -11,11 +11,12 @@ st.title("🛍️ Hopscotch Support")
 st.caption("Session 1 · raw OpenAI SDK + glue code")
 
 # --- 1. API key ------------------------------------------------------------
-load_dotenv()  # copies values from the .env file into environment variables
+env_file = Path(__file__).resolve().parent / ".env"
+load_dotenv(dotenv_path=env_file)  # load the project .env regardless of launch directory
 api_key = os.getenv("OPENROUTER_API_KEY")
 if not api_key:
-    st.error("OPENROUTER_API_KEY not found. Copy `.env.example` to `.env`, "
-             "paste your key from https://openrouter.ai/keys, then restart the app.")
+    st.error("OPENROUTER_API_KEY not found. Add it to the project's `.env` file "
+             "or configure it as a secret in your deployment, then restart the app.")
     st.stop()  # stop the script here; nothing below runs
 
 # --- 2. Client + model -----------------------------------------------------
